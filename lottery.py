@@ -9,7 +9,7 @@ from scipy.stats import mode
 
 #selecting within columns
 print(df['Winning Numbers'].iloc[1][2:8])
-
+print(df['Winning Numbers'])
 
 
 print(df)
@@ -42,7 +42,7 @@ df['Winning Numbers'] = df['Winning Numbers'].str.replace(r'([^\w\s]|_)+(?=\s|$)
 #Problem occurs here, all characters are considered string and not a list
 #converting elements of winning numbers to an array because it is currently a massive string of numbers and commas
 #research ways to iterate through the list without needing for loop (lambda maybe??)
-all = []
+
 mini = []
 maxi = []
 for i in range(len(df['Winning Numbers'])):
@@ -54,13 +54,28 @@ for i in range(len(df['Winning Numbers'])):
     #and the min values
     indmin = np.argmin(df['Winning Numbers'][i])
     mini.append(df['Winning Numbers'][i][indmin])
-    #and finally we capture all numbers into a huge list for analysis
+
+
+
+#and finally we capture all numbers into a huge list for analysis
+all = []
+#creates nested list (needs to use .extend() otherwise will create Df/ 2D array)
+all.extend(df['Winning Numbers'])
+print(all)
+#flatten out the nested list using list comprehension
+all2 = [item for elem in all for item in elem]
+print(all2)
+# NOW I CAN DO DATA STUFF
+np.argmax(all2)
+np.argmin(all2)
+print(all2[28])
+print(all2[149])
 
 
 
 np.bincount(maxi).argmax()
 np.bincount(mini).argmin()
-print(all)
+print(type(all))
 
 type(df['Winning Numbers'][1])
 print(df['Winning Numbers'])
