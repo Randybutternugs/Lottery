@@ -92,9 +92,14 @@ np.bincount(maxi).argmax()
 np.bincount(mini).argmin()
 print(type(all))
 
-type(df['Winning Numbers'][1])
-print(df['Winning Numbers'])
 
+#Print top 5 most common Numbers
+all3 = all2
+print(all3)
+top = []
+for i in range(6):
+    bust = np.bincount(all3).argmax()
+    top.append(bust)
+    all3.remove(bust)
 
-
-#Print top 5 most common numbers
+print(top)
