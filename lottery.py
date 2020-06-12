@@ -66,12 +66,27 @@ print(all)
 all2 = [item for elem in all for item in elem]
 print(all2)
 # NOW I CAN DO DATA STUFF
+
+
+
+#most common number
+mostcom = np.bincount(all2).argmax()
+print(mostcom)
+#least common winning number
+leastcom = np.bincount(all2).argmin()
+print(leastcom)
+
+
+all2[17]
+
+np.bincount(all2).unique()
+
 np.argmax(all2)
 np.argmin(all2)
 print(all2[28])
 print(all2[149])
 
-
+print(mode(all2))
 
 np.bincount(maxi).argmax()
 np.bincount(mini).argmin()
@@ -79,3 +94,7 @@ print(type(all))
 
 type(df['Winning Numbers'][1])
 print(df['Winning Numbers'])
+
+
+
+#Print top 5 most common numbers
